@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Primary SEO -->
+  <title>Leo's Bar | Restaurante y Terraza, Puerto Viejo, Puerto Pe&#241;asco, Sonora</title>
+  <meta name="description" content="Tacos de Gobernador en tortilla de nopal, m&#250;sica en vivo y terraza con sombra en el Puerto Viejo. 313 rese&#241;as en Google, 4.8 estrellas. Leo's Bar, Puerto Pe&#241;asco, Sonora." />
+
+  <!-- Open Graph (og:url uses hyphens, og:image is absolute URL) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://neonframewebdev.github.io/leos-bar-rocky-point/" />
+  <meta property="og:title" content="Leo's Bar | Puerto Viejo, Puerto Pe&#241;asco" />
+  <meta property="og:description" content="Tacos de Gobernador en tortilla de nopal, m&#250;sica en vivo y terraza con sombra. 313 rese&#241;as en Google, 4.8 estrellas. Calle Alc&#225;ntar, Puerto Pe&#241;asco, Sonora." />
+  <meta property="og:image" content="https://neonframewebdev.github.io/leos-bar-rocky-point/assets/event_2.jpg" />
+  <meta property="og:locale" content="es_MX" />
+  <meta property="og:locale:alternate" content="en_US" />
+
+  <!-- Twitter Card (absolute URL) -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Leo's Bar | Puerto Pe&#241;asco, Sonora" />
+  <meta name="twitter:description" content="Tacos de Gobernador, terraza con sombra y m&#250;sica en vivo. El mejor restaurante del Puerto Viejo." />
+  <meta name="twitter:image" content="https://neonframewebdev.github.io/leos-bar-rocky-point/assets/event_2.jpg" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="assets/logo.jpg" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Preload hero image -->
+  <link rel="preload" as="image" href="assets/event_2.jpg" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ======================================================= -->
+  <!-- Loader                                                   -->
+  <!-- ======================================================= -->
+  <div id="loader" role="status" aria-label="Cargando / Loading">
+    <img class="loader-logo" src="assets/logo.jpg" alt="Leo's Bar logo" width="120" height="120" />
+    <div class="loader-bar-track" aria-hidden="true">
+      <div class="loader-bar-fill"></div>
+    </div>
+  </div>
+
+  <!-- ======================================================= -->
+  <!-- Nav                                                      -->
+  <!-- ======================================================= -->
+  <nav role="navigation" aria-label="Navegaci&#243;n principal">
+    <a href="#hero" class="nav-logo" aria-label="Leo's Bar inicio">
+      <img src="assets/logo.jpg" alt="" width="38" height="38" aria-hidden="true" />
+      <span class="nav-logo-text">Leo's Bar</span>
+    </a>
+
+    <div class="nav-right">
+      <!-- Desktop nav links -->
+      <ul class="nav-links" role="list">
+        <li><a href="#menu"
+               data-es="Men&#250;"
+               data-en="Menu">Men&#250;</a></li>
+        <li><a href="#story"
+               data-es="Nosotros"
+               data-en="About">Nosotros</a></li>
+        <li><a href="#entertainment"
+               data-es="Eventos"
+               data-en="Events">Eventos</a></li>
+        <li><a href="#contact"
+               data-es="Vis&#237;tanos"
+               data-en="Visit Us">Vis&#237;tanos</a></li>
+      </ul>
+
+      <!-- Language toggle -- always visible, never in drawer -->
+      <button type="button" class="lang-toggle" data-current="es"
+              aria-label="Cambiar a English">
+        <span class="lt-es">ES</span><span class="lt-sep">/</span><span class="lt-en">EN</span>
+      </button>
+
+      <!-- CTA pill (desktop) -->
+      <a href="tel:+526386900951" class="nav-cta"
+         data-es="Ll&#225;manos"
+         data-en="Call Us">Ll&#225;manos</a>
+
+      <!-- Hamburger (mobile) -->
+      <button class="nav-hamburger" aria-label="Abrir men&#250;" aria-expanded="false" aria-controls="nav-drawer">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile drawer -->
+  <nav class="nav-drawer" id="nav-drawer" aria-label="Men&#250; m&#243;vil">
+    <a href="#menu"
+       data-es="Men&#250;"
+       data-en="Menu">Men&#250;</a>
+    <a href="#story"
+       data-es="Nosotros"
+       data-en="About">Nosotros</a>
+    <a href="#entertainment"
+       data-es="Eventos"
+       data-en="Events">Eventos</a>
+    <a href="#contact"
+       data-es="Vis&#237;tanos"
+       data-en="Visit Us">Vis&#237;tanos</a>
+    <a href="tel:+526386900951" class="drawer-cta"
+       data-es="Ll&#225;manos"
+       data-en="Call Us">Ll&#225;manos</a>
+  </nav>
+
+  <!-- ======================================================= -->
+  <!-- Hero                                                     -->
+  <!-- ======================================================= -->
+  <section id="hero" aria-label="Hero">
+    <img
+      class="hero-img"
+      src="assets/event_2.jpg"
+      alt="El patio de Leo's Bar con &#225;rbol de sombra, banderas y mural en el Puerto Viejo de Puerto Pe&#241;asco"
+      fetchpriority="high"
+      decoding="async"
+    />
+    <div class="hero-overlay" aria-hidden="true"></div>
+
+    <div class="hero-content">
+      <p class="hero-eyebrow">Puerto Viejo, Puerto Pe&#241;asco</p>
+
+      <h1 class="hero-h1"
+          data-es="Los tacos de Gobernador m&#225;s chidos del Puerto Viejo."
+          data-en="The best Gobernador tacos in Old Port.">
+        Los tacos de Gobernador m&#225;s chidos del Puerto Viejo.
+      </h1>
+
+      <p class="hero-sub"
+         data-es="Restaurante, terraza y m&#250;sica en vivo. En la calle Alc&#225;ntar desde 2021."
+         data-en="Restaurant, courtyard, and live music. On Calle Alc&#225;ntar since 2021.">
+        Restaurante, terraza y m&#250;sica en vivo. En la calle Alc&#225;ntar desde 2021.
+      </p>
+
+      <div class="hero-ctas">
+        <a href="#menu" class="btn-primary"
+           data-es="Ven a echar un taco"
+           data-en="Come grab a taco">Ven a echar un taco</a>
+        <a href="tel:+526386900951" class="btn-secondary"
+           data-es="Ll&#225;manos"
+           data-en="Call Us">Ll&#225;manos</a>
+      </div>
+    </div>
+
+    <div class="hero-scroll-cue" aria-hidden="true"></div>
+  </section>
+
+  <!-- ======================================================= -->
+  <!-- Trust Bar                                                -->
+  <!-- ======================================================= -->
+  <div id="trust-bar" role="complementary" aria-label="Credenciales">
+    <div class="trust-item">
+      <strong>4.8</strong>
+      <span class="trust-stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+      <span data-es=" en Google" data-en=" on Google"> en Google</span>
+    </div>
+    <span class="trust-dot" aria-hidden="true">&#9679;</span>
+    <div class="trust-item">
+      <strong data-es="313 rese&#241;as" data-en="313 reviews">313 rese&#241;as</strong>
+    </div>
+    <span class="trust-dot" aria-hidden="true">&#9679;</span>
+    <div class="trust-item"
+         data-es="Desde 2021"
+         data-en="Est. 2021">Desde 2021</div>
+    <span class="trust-dot" aria-hidden="true">&#9679;</span>
+    <div class="trust-item">Calle Alc&#225;ntar, Puerto Viejo</div>
+  </div>
+
+  <!-- ======================================================= -->
+  <!-- Highlights                                               -->
+  <!-- ======================================================= -->
+  <section id="highlights" aria-labelledby="highlights-title">
+    <div class="section-header reveal">
+      <p class="section-label"
+         data-es="Lo que nos hace &#250;nicos"
+         data-en="What Makes Us Different">Lo que nos hace &#250;nicos</p>
+    </div>
+
+    <div class="highlights-grid">
+      <div class="highlight-card reveal">
+        <div class="highlight-icon" aria-hidden="true">
+          <!-- Taco / food icon -->
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M3 18c0-5.5 4.5-10 10-10s10 4.5 10 10"/>
+            <path d="M3 18h18"/>
+            <path d="M8 18c0-2.8 1.8-5 4-5s4 2.2 4 5"/>
+            <circle cx="12" cy="10" r="1.5"/>
+          </svg>
+        </div>
+        <h3 class="highlight-title"
+            data-es="Cocina de Leo"
+            data-en="Leo's Kitchen">Cocina de Leo</h3>
+        <p class="highlight-body"
+           data-es="Tacos Gobernador en tortilla de nopal -- la receta que todo Puerto Pe&#241;asco conoce."
+           data-en="Gobernador Tacos on cactus tortilla -- the dish all of Rocky Point knows.">
+          Tacos Gobernador en tortilla de nopal -- la receta que todo Puerto Pe&#241;asco conoce.
+        </p>
+      </div>
+
+      <div class="highlight-card reveal">
+        <div class="highlight-icon" aria-hidden="true">
+          <!-- Music note icon -->
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M9 18V5l12-2v13"/>
+            <circle cx="6" cy="18" r="3"/>
+            <circle cx="18" cy="16" r="3"/>
+          </svg>
+        </div>
+        <h3 class="highlight-title"
+            data-es="M&#250;sica en vivo"
+            data-en="Live Music">M&#250;sica en vivo</h3>
+        <p class="highlight-body"
+           data-es="Pablo Ramirezz, Karla y H&#233;ctor, y m&#225;s -- m&#250;sica casi todos los d&#237;as de la semana."
+           data-en="Live music almost every day of the week.">
+          Pablo Ramirezz, Karla y H&#233;ctor, y m&#225;s -- m&#250;sica casi todos los d&#237;as de la semana.
+        </p>
+      </div>
+
+      <div class="highlight-card reveal">
+        <div class="highlight-icon" aria-hidden="true">
+          <!-- Tree / community icon -->
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 22v-7"/>
+            <path d="M12 15l-5-5h10l-5 5z"/>
+            <path d="M7 10l-4-4h18l-4 4"/>
+            <path d="M9 6l-3-4h12l-3 4"/>
+          </svg>
+        </div>
+        <h3 class="highlight-title"
+            data-es="El patio de la comunidad"
+            data-en="The Community Courtyard">El patio de la comunidad</h3>
+        <p class="highlight-body"
+           data-es="Sede del Art Walk del Puerto Viejo y venue oficial de Circus Mexicus 2026."
+           data-en="Home of the Old Port Art Walk and official Circus Mexicus 2026 venue.">
+          Sede del Art Walk del Puerto Viejo y venue oficial de Circus Mexicus 2026.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================= -->
+  <!-- Venue Badge Strip                                        -->
+  <!-- ======================================================= -->
+  <section id="venue-badges" aria-labelledby="venue-title">
+    <div class="venue-inner reveal">
+      <p class="section-label"
+         data-es="Leo's Bar: En el coraz&#243;n del Puerto Viejo"
+         data-en="Leo's Bar: At the Heart of Old Port">Leo's Bar: En el coraz&#243;n del Puerto Viejo</p>
+
+      <div class="venue-grid">
+        <!-- Badge 1: Circus Mexicus -->
+        <div class="venue-badge badge-circus">
+          <p class="badge-supertitle"
+             data-es="Venue Oficial"
+             data-en="Official Venue">Venue Oficial</p>
+          <h3 class="badge-title">Circus Mexicus 2026</h3>
+          <p class="badge-sub"
+             data-es="30 de mayo &#8211; Stephen Ashbrook, Nolan McKelvey"
+             data-en="May 30 &#8211; Stephen Ashbrook, Nolan McKelvey">30 de mayo &#8211; Stephen Ashbrook, Nolan McKelvey</p>
+        </div>
+
+        <!-- Badge 2: Art Walk -->
+        <div class="venue-badge badge-artwalk">
+          <p class="badge-supertitle badge-supertitle--amber"
+             data-es="Venue Mensual"
+             data-en="Monthly Venue">Venue Mensual</p>
+          <h3 class="badge-title"
+              data-es="Art Walk del Puerto Viejo"
+              data-en="Old Port Art Walk">Art Walk del Puerto Viejo</h3>
+          <p class="badge-sub"
+             data-es="Sede recurrente desde 2023"
+             data-en="Recurring venue since 2023">Sede recurrente desde 2023</p>
+        </div>
+      </div>
+
+      <p class="venue-tagline"
+         data-es="Un bar que la comunidad llama hogar."
+         data-en="A bar the community calls home.">Un bar que la comunidad llama hogar.</p>
+    </div>
+  </section>
+
+  <!-- ======================================================= -->
+  <!-- Menu                                                     -->
+  <!-- ======================================================= -->
+  <section id="menu" aria-labelledby="menu-title">
+    <div class="menu-inner">
+      <div class="section-header reveal">
+        <p class="section-label"
+           data-es="Lo que servimos"
+           data-en="What We Serve">Lo que servimos</p>
+        <h2 class="section-title" id="menu-title"
+            data-es="La Cocina de Leo"
+            data-en="Leo's Kitchen">La Cocina de Leo</h2>
+      </div>
+
+      <!-- Menu photo (mobile: above columns; desktop: floats right) -->
+      <div class="menu-photo-wrap reveal">
+        <img
+          src="assets/dish_2.jpg"
+          alt="Tacos de carne asada con nopal asado y chiles en Leo's Bar"
+          loading="lazy"
+          class="menu-photo"
+        />
+      </div>
+
+      <div class="menu-grid reveal">
+
+        <!-- Food column -->
+        <div class="menu-col">
+          <h3 class="menu-col-title"
+              data-es="Especialidades"
+              data-en="House Favorites">Especialidades</h3>
+
+          <p class="menu-category"
+             data-es="Los tacos"
+             data-en="Tacos">Los tacos</p>
+
+          <ul class="menu-items">
+            <li class="menu-item menu-item--featured">
+              <div class="menu-item-name"
+                   data-es="Tacos de Gobernador"
+                   data-en="Gobernador Tacos">Tacos de Gobernador</div>
+              <div class="menu-item-desc"
+                   data-es="Camar&#243;n o pescado en tortilla de nopal. El plato que te trajo aqu&#237;."
+                   data-en="Shrimp or fish on nopal (cactus) tortillas. The dish that put Leo's on the map.">
+                Camar&#243;n o pescado en tortilla de nopal. El plato que te trajo aqu&#237;.
+              </div>
+            </li>
+            <li class="menu-item">
+              <div class="menu-item-name"
+                   data-es="Tacos de Carne Asada"
+                   data-en="Carne Asada Tacos">Tacos de Carne Asada</div>
+              <div class="menu-item-desc"
+                   data-es="Tortilla de harina, pico de gallo, salsa de aguacate y chile toreado. Con nopal asado al lado."
+                   data-en="Flour tortilla, pico de gallo, avocado salsa, and roasted chile. Served with grilled nopal.">
+                Tortilla de harina, pico de gallo, salsa de aguacate y chile toreado. Con nopal asado al lado.
+              </div>
+            </li>
+            <li class="menu-item">
+              <div class="menu-item-name"
+                   data-es="Tacos de Arrachera"
+                   data-en="Arrachera Tacos">Tacos de Arrachera</div>
+              <div class="menu-item-desc"
+                   data-es="Carne a la parrilla, bien sazonada."
+                   data-en="Seasoned flank steak off the grill.">
+                Carne a la parrilla, bien sazonada.
+              </div>
+            </li>
+            <li class="menu-item">
+              <div class="menu-item-name"
+                   data-es="Tacos de Adobada"
+                   data-en="Adobada Tacos">Tacos de Adobada</div>
+              <div class="menu-item-desc"
+                   data-es="Cerdo marinado. Martes de taco a $25 pesos."
+                   data-en="Marinated pork. Taco Tuesday special at $25 MXN.">
+                Cerdo marinado. Martes de taco a $25 pesos.
+              </div>
+            </li>
+            <li class="menu-item">
+              <div class="menu-item-name"
+                   data-es="Tacos de Pescado"
+                   data-en="Fish Tacos">Tacos de Pescado</div>
+              <div class="menu-item-desc"
+                   data-es="Frescos. Pregunta por el especial del d&#237;a."
+                   data-en="Fresh. Ask about the daily special.">
+                Frescos. Pregunta por el especial del d&#237;a.
+              </div>
+            </li>
+            <li class="menu-item">
+              <div class="menu-item-name"
+                   data-es="Tacos de Camar&#243;n"
+                   data-en="Shrimp Tacos">Tacos de Camar&#243;n</div>
+              <div class="menu-item-desc"
+                   data-es="Estilo Gobernador, con tortilla de nopales."
+                   data-en="Gobernador style, on nopal tortillas.">
+                Estilo Gobernador, con tortilla de nopales.
+              </div>
+            </li>
+          </ul>
+
+          <p class="menu-category"
+             data-es="Mariscos y m&#225;s"
+             data-en="Seafood and More">Mariscos y m&#225;s</p>
+
+          <ul class="menu-items">
+            <li class="menu-item">
+              <div class="menu-item-name"
+                   data-es="Coctel de Camar&#243;n"
+                   data-en="Shrimp Cocktail">Coctel de Camar&#243;n</div>
+              <div class="menu-item-desc"
+                   data-es="Presentaci&#243;n en copa grande, estilo Sonora. Con base oscura y lim&#243;n."
+                   data-en="Large goblet presentation, Sonora style. Dark base, fresh lime.">
+                Presentaci&#243;n en copa grande, estilo Sonora. Con base oscura y lim&#243;n.
+              </div>
+            </li>
+            <li class="menu-item">
+              <div class="menu-item-name"
+                   data-es="Ceviche"
+                   data-en="Ceviche">Ceviche</div>
+              <div class="menu-item-desc"
+                   data-es="Camar&#243;n fresco marinado en c&#237;tricos."
+                   data-en="Fresh shrimp marinated in citrus.">
+                Camar&#243;n fresco marinado en c&#237;tricos.
+              </div>
+            </li>
+            <li class="menu-item">
+              <div class="menu-item-name"
+                   data-es="Mariscos en Papillote"
+                   data-en="Seafood en Papillote">Mariscos en Papillote</div>
+              <div class="menu-item-desc"
+                   data-es="Bolsa de aluminio, caldo, arroz y verduras. Para los que quieren algo diferente."
+                   data-en="Foil-baked with broth, rice, and vegetables. Something different.">
+                Bolsa de aluminio, caldo, arroz y verduras. Para los que quieren algo diferente.
+              </div>
+            </li>
+            <li class="menu-item">
+              <div class="menu-item-name"
+                   data-es="Quesadillas, Hamburguesas, Alitas"
+                   data-en="Quesadillas, Burgers, Wings">Quesadillas, Hamburguesas, Alitas</div>
+              <div class="menu-item-desc"
+                   data-es="Pregunta por el men&#250; del d&#237;a."
+                   data-en="Ask for today's menu.">
+                Pregunta por el men&#250; del d&#237;a.
+              </div>
+            </li>
+            <li class="menu-item">
+              <div class="menu-item-name"
+                   data-es="Nieve frita"
+                   data-en="Fried Ice Cream">Nieve frita</div>
+              <div class="menu-item-desc"
+                   data-es="De postre. S&#237;, existe."
+                   data-en="For dessert. Yes, it's real.">
+                De postre. S&#237;, existe.
+              </div>
+            </li>
+          </ul>
+
+          <p class="menu-footnote"
+             data-es="Men&#250; completo disponible en el restaurante. Los precios pueden cambiar."
+             data-en="Full menu available at the restaurant. Prices may change.">
+            Men&#250; completo disponible en el restaurante. Los precios pueden cambiar.
+          </p>
+        </div>
+
+        <!-- Drinks column -->
+        <div class="menu-col">
+          <h3 class="menu-col-title"
+              data-es="La Barra"
+              data-en="The Bar">La Barra</h3>
+
+          <p class="menu-category"
+             data-es="Bebidas"
+             data-en="Drinks">Bebidas</p>
+
+          <ul class="menu-items">
+            <li class="menu-item menu-item--featured">
+              <div class="menu-item-name">Leo's Special</div>
+              <div class="menu-item-desc"
+                   data-es="El c&#243;ctel de la casa. Lo hacen Adrianna y Caesar con menta fresca del patio. Pide uno."
+                   data-en="The house cocktail. Adrianna and Caesar make it with fresh mint grown right in the patio. Get one.">
+                El c&#243;ctel de la casa. Lo hacen Adrianna y Caesar con menta fresca del patio. Pide uno.
+              </div>
+            </li>
+            <li class="menu-item">
+              <div class="menu-item-name"
+                   data-es="Michelada"
+                   data-en="Michelada">Michelada</div>
+              <div class="menu-item-desc"
+                   data-es="Con Modelo Especial. Vaso grande, sal y lim&#243;n."
+                   data-en="With Modelo Especial. Big glass, salt rim, lime.">
+                Con Modelo Especial. Vaso grande, sal y lim&#243;n.
+              </div>
+            </li>
+            <li class="menu-item">
+              <div class="menu-item-name"
+                   data-es="Margaritas"
+                   data-en="Margaritas">Margaritas</div>
+              <div class="menu-item-desc"
+                   data-es="De frutas, con Taj&#237;n, del color que quieras."
+                   data-en="Fruit, Taj&#237;n, whatever color you want.">
+                De frutas, con Taj&#237;n, del color que quieras.
+              </div>
+            </li>
+            <li class="menu-item">
+              <div class="menu-item-name"
+                   data-es="C&#243;cteles de la barra"
+                   data-en="Bar Cocktails">C&#243;cteles de la barra</div>
+              <div class="menu-item-desc"
+                   data-es="Rojos, blancos, pi&#241;a -- hay para todos."
+                   data-en="Red, white, pineapple -- there's something for everyone.">
+                Rojos, blancos, pi&#241;a -- hay para todos.
+              </div>
+            </li>
+            <li class="menu-item">
+              <div class="menu-item-name"
+                   data-es="Cerveza"
+                   data-en="Beer">Cerveza</div>
+              <div class="menu-item-desc"
+                   data-es="Modelo Especial confirmado. Don Julio 1942 en la barra."
+                   data-en="Modelo Especial confirmed. Don Julio 1942 behind the bar.">
+                Modelo Especial confirmado. Don Julio 1942 en la barra.
+              </div>
+            </li>
+          </ul>
+        </div>
+
+      </div><!-- /.menu-grid -->
+    </div><!-- /.menu-inner -->
+  </section>
+
+  <!-- ======================================================= -->
+  <!-- Gallery                                                  -->
+  <!-- ======================================================= -->
+  <section id="gallery" aria-labelledby="gallery-title">
+    <div class="section-header reveal">
+      <p class="section-label"
+         data-es="El Ambiente"
+         data-en="The Vibe">El Ambiente</p>
+      <h2 class="section-title" id="gallery-title"
+          data-es="As&#237; se ve Leo's Bar"
+          data-en="This is Leo's Bar">As&#237; se ve Leo's Bar</h2>
+    </div>
+
+    <div class="gallery-grid">
+
+      <div class="gallery-item reveal" role="button" tabindex="0"
+           data-caption-es="El ambiente del patio de Leo's Bar -- sombra, m&#250;sica y buena compa&#241;&#237;a."
+           data-caption-en="Leo's Bar courtyard atmosphere -- shade, music, and good company.">
+        <img src="assets/event_2.jpg"
+             alt="Patio de Leo's Bar con &#225;rbol, banderas y mural" loading="lazy" />
+        <div class="gallery-overlay" aria-hidden="true"></div>
+      </div>
+
+      <div class="gallery-item reveal" role="button" tabindex="0"
+           data-caption-es="Terraza a la sombra y ambiente con banderas en el patio de Leo's."
+           data-caption-en="Shaded terrace and courtyard atmosphere with flags at Leo's.">
+        <img src="assets/ambiance_2.jpg"
+             alt="Terraza exterior de Leo's Bar con luces de noche y patio" loading="lazy" />
+        <div class="gallery-overlay" aria-hidden="true"></div>
+      </div>
+
+      <div class="gallery-item reveal" role="button" tabindex="0"
+           data-caption-es="Tacos, mariscos en papillote y cocteles de camar&#243;n -- la cocina de Leo's."
+           data-caption-en="Tacos, seafood en papillote, and shrimp cocktails -- Leo's kitchen.">
+        <img src="assets/dish_1.jpg"
+             alt="Tacos y mariscos en la cocina de Leo's Bar" loading="lazy" />
+        <div class="gallery-overlay" aria-hidden="true"></div>
+      </div>
+
+      <div class="gallery-item reveal" role="button" tabindex="0"
+           data-caption-es="Tacos de carne asada con nopal asado y chiles -- listos para ti."
+           data-caption-en="Carne asada tacos with grilled nopal and chiles -- ready for you.">
+        <img src="assets/dish_2.jpg"
+             alt="Tacos de carne asada en Leo's Bar con nopal y chiles" loading="lazy" />
+        <div class="gallery-overlay" aria-hidden="true"></div>
+      </div>
+
+      <div class="gallery-item reveal" role="button" tabindex="0"
+           data-caption-es="C&#243;cteles frescos en Leo's Bar -- desde el cl&#225;sico hasta el especial de la casa."
+           data-caption-en="Fresh cocktails at Leo's Bar -- from the classic to the house special.">
+        <img src="assets/drink_1.jpg"
+             alt="C&#243;cteles coloridos en la terraza de Leo's Bar" loading="lazy" />
+        <div class="gallery-overlay" aria-hidden="true"></div>
+      </div>
+
+      <div class="gallery-item reveal" role="button" tabindex="0"
+           data-caption-es="Michelada con Modelo -- la favorita de la barra de Leo's."
+           data-caption-en="Michelada with Modelo -- the bar favorite at Leo's.">
+        <img src="assets/drink_2.jpg"
+             alt="Michelada con Modelo Especial y ambiente nocturno en Leo's Bar" loading="lazy" />
+        <div class="gallery-overlay" aria-hidden="true"></div>
+      </div>
+
+      <div class="gallery-item reveal" role="button" tabindex="0"
+           data-caption-es="El espacio abierto de Leo's Bar: terraza, barra y ambiente."
+           data-caption-en="Leo's Bar open space: terrace, bar, and atmosphere.">
+        <img src="assets/ambiance_1.jpg"
+             alt="Espacio interior y terraza de Leo's Bar" loading="lazy" />
+        <div class="gallery-overlay" aria-hidden="true"></div>
+      </div>
+
+      <div class="gallery-item reveal" role="button" tabindex="0"
+           data-caption-es="La entrada del bar y restaurante de Leo en el Puerto Viejo."
+           data-caption-en="The entrance to Leo's bar and restaurant in Old Port.">
+        <img src="assets/exterior_1.jpg"
+             alt="Fachada exterior de Leo's Bar en el Puerto Viejo" loading="lazy" />
+        <div class="gallery-overlay" aria-hidden="true"></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div id="lightbox" role="dialog" aria-modal="true" aria-label="Imagen ampliada">
+    <button id="lightbox-close" aria-label="Cerrar / Close">&#10005;</button>
+    <img id="lightbox-img" src="" alt="" />
+    <p id="lightbox-caption"></p>
+  </div>
+
+  <!-- ======================================================= -->
+  <!-- Story                                                    -->
+  <!-- ======================================================= -->
+  <section id="story" aria-labelledby="story-title">
+    <div class="story-inner">
+      <div class="section-header reveal">
+        <p class="section-label"
+           data-es="La Historia de Leo"
+           data-en="Leo's Story">La Historia de Leo</p>
+        <h2 class="section-title" id="story-title"
+            data-es="Desde Durango hasta el Puerto Viejo"
+            data-en="From Durango to Old Port">Desde Durango hasta el Puerto Viejo</h2>
+      </div>
+
+      <div class="story-text reveal">
+        <p data-es="Leo lleg&#243; de Durango, ech&#243; ra&#237;ces en Puerto Pe&#241;asco y pas&#243; m&#225;s de diez a&#241;os aprendiendo c&#243;mo funciona este pueblo de adentro. En 2021 abri&#243; su propio lugar: Leo's Bar, a una cuadra del Malec&#243;n, en el coraz&#243;n del Puerto Viejo."
+           data-en="Leo came from Durango, put down roots in Puerto Pe&#241;asco, and spent over ten years learning how this town really works. In 2021 he opened his own place: Leo's Bar, a block from the Malecon, in the heart of Old Port.">
+          Leo lleg&#243; de Durango, ech&#243; ra&#237;ces en Puerto Pe&#241;asco y pas&#243; m&#225;s de diez a&#241;os aprendiendo c&#243;mo funciona este pueblo de adentro. En 2021 abri&#243; su propio lugar: Leo's Bar, a una cuadra del Malec&#243;n, en el coraz&#243;n del Puerto Viejo.
+        </p>
+        <p data-es="El patio tiene sombra, m&#250;sica casi todos los d&#237;as y tacos de Gobernador en tortilla de nopal que no vas a encontrar igual en otro lado. La menta para el c&#243;ctel de la casa la cultiva Leo en el mismo patio. Adrianna y Caesar llevan la barra. Aqu&#237; conoces a todos por nombre."
+           data-en="The courtyard has shade, live music most days, and Gobernador tacos on nopal tortillas you won't find anywhere else. The mint for the house cocktail grows right there in the patio. Adrianna and Caesar run the bar. You'll know everyone here by name before the night's over.">
+          El patio tiene sombra, m&#250;sica casi todos los d&#237;as y tacos de Gobernador en tortilla de nopal que no vas a encontrar igual en otro lado. La menta para el c&#243;ctel de la casa la cultiva Leo en el mismo patio. Adrianna y Caesar llevan la barra. Aqu&#237; conoces a todos por nombre.
+        </p>
+        <p data-es="Cuatro a&#241;os despu&#233;s, Leo's Bar es sede del Art Walk del Puerto Viejo y venue oficial del Circus Mexicus 2026. No llegaron a eso de la noche a la ma&#241;ana -- llegaron haciendo bien su trabajo, noche a noche."
+           data-en="Four years in, Leo's Bar is the home of the Old Port Art Walk and an official venue for Circus Mexicus 2026. That didn't happen overnight. It happened by doing things right, one night at a time.">
+          Cuatro a&#241;os despu&#233;s, Leo's Bar es sede del Art Walk del Puerto Viejo y venue oficial del Circus Mexicus 2026. No llegaron a eso de la noche a la ma&#241;ana -- llegaron haciendo bien su trabajo, noche a noche.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================= -->
+  <!-- Entertainment                                            -->
+  <!-- ======================================================= -->
+  <section id="entertainment" aria-labelledby="entertainment-title">
+    <div class="entertainment-inner">
+      <div class="section-header reveal">
+        <p class="section-label"
+           data-es="Eventos y Ambiente"
+           data-en="Events and Entertainment">Eventos y Ambiente</p>
+        <h2 class="section-title" id="entertainment-title"
+            data-es="El patio aguanta una buena noche"
+            data-en="The Courtyard Holds a Good Night">El patio aguanta una buena noche</h2>
+      </div>
+
+      <div class="entertainment-text reveal">
+        <p data-es="M&#250;sica en vivo martes, viernes y domingo. Pablo Ramirezz los martes de 6 a 9. Karla y H&#233;ctor los viernes a las 4. El patio aguanta una buena noche."
+           data-en="Live music Tuesdays, Fridays, and Sundays. Pablo Ramirezz on Tuesdays from 6 to 9. Karla and Hector on Fridays at 4. The courtyard holds a good night.">
+          M&#250;sica en vivo martes, viernes y domingo. Pablo Ramirezz los martes de 6 a 9. Karla y H&#233;ctor los viernes a las 4. El patio aguanta una buena noche.
+        </p>
+        <p data-es="Tambi&#233;n hay pintar y beber (paint and sip) para los que quieren algo diferente. Checa las redes para los eventos de la semana."
+           data-en="Paint-and-sip events too, for when you want something a little different. Check the socials for the week's schedule.">
+          Tambi&#233;n hay pintar y beber (paint and sip) para los que quieren algo diferente. Checa las redes para los eventos de la semana.
+        </p>
+        <p data-es="Leo's Bar es venue oficial del Circus Mexicus 2026 (30 de mayo) y sede recurrente del Art Walk del Puerto Viejo. Si no te ha tocado ninguno de los dos, te est&#225;s perdiendo de algo."
+           data-en="Leo's Bar is an official Circus Mexicus 2026 venue (May 30) and a recurring home for the Old Port Art Walk. If you haven't caught either one yet, you're missing out.">
+          Leo's Bar es venue oficial del Circus Mexicus 2026 (30 de mayo) y sede recurrente del Art Walk del Puerto Viejo. Si no te ha tocado ninguno de los dos, te est&#225;s perdiendo de algo.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================= -->
+  <!-- Reviews                                                  -->
+  <!-- ======================================================= -->
+  <section id="reviews" aria-labelledby="reviews-title">
+    <div class="section-header reveal">
+      <p class="section-label"
+         data-es="Lo que dicen"
+         data-en="What People Say">Lo que dicen</p>
+      <h2 class="section-title" id="reviews-title"
+          data-es="4.8 estrellas en Google"
+          data-en="4.8 Stars on Google">4.8 estrellas en Google</h2>
+    </div>
+
+    <div class="reviews-grid">
+
+      <!-- Review 1: verbatim from aggregator (English source, leave static, no toggle) -->
+      <div class="review-card reveal">
+        <div class="review-stars" aria-label="5 estrellas">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <blockquote class="review-quote">
+          "FOOD OK, service excellent!"
+        </blockquote>
+        <p class="review-author">Mark Bolton</p>
+        <p class="review-source">Google</p>
+      </div>
+
+      <!-- Review 2: verbatim ratings review (static, no toggle -- same in both languages) -->
+      <div class="review-card reveal">
+        <div class="review-stars" aria-label="5 estrellas">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <blockquote class="review-quote">
+          "Food: 4 / Service: 5 / Atmosphere: 5"
+        </blockquote>
+        <p class="review-author">Laura Montijo Labor&#237;n</p>
+        <p class="review-source">Google</p>
+      </div>
+
+      <!-- Review 3: static English (verbatim from puertopenascoexplored.com editorial) -->
+      <div class="review-card reveal">
+        <div class="review-stars" aria-label="5 estrellas">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <blockquote class="review-quote">
+          "An Oasis of Flavor and Fun Under the Shade. A hidden gem where the natural beauty of Puerto Pe&#241;asco sets the stage for an unforgettable dining experience."
+        </blockquote>
+        <p class="review-author">puertopenascoexplored.com</p>
+        <p class="review-source">Web</p>
+      </div>
+
+    </div>
+
+    <div class="reviews-aggregate reveal">
+      <span class="aggregate-number">4.8</span>
+      <span class="aggregate-stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+      <span class="aggregate-label"
+            data-es="en Google -- 313 rese&#241;as"
+            data-en="on Google -- 313 reviews">en Google -- 313 rese&#241;as</span>
+    </div>
+  </section>
+
+  <!-- ======================================================= -->
+  <!-- Contact & Hours                                          -->
+  <!-- ======================================================= -->
+  <section id="contact" aria-labelledby="contact-title">
+    <div class="contact-inner">
+      <div class="section-header reveal">
+        <p class="section-label"
+           data-es="Enc&#250;entranos"
+           data-en="Find Us">Enc&#250;entranos</p>
+        <h2 class="section-title" id="contact-title"
+            data-es="Vis&#237;tanos"
+            data-en="Visit Us">Vis&#237;tanos</h2>
+      </div>
+
+      <div class="contact-grid">
+
+        <!-- Left: info -->
+        <div class="contact-info reveal">
+          <p class="contact-name">Leo's Bar</p>
+          <p class="contact-address">
+            Calle Alc&#225;ntar 49, Puerto Viejo<br />
+            Puerto Pe&#241;asco, Sonora, M&#233;xico
+          </p>
+
+          <a href="tel:+526386900951" class="contact-phone">+52 638 690 0951</a>
+
+          <p class="contact-note"
+             data-es="Aceptamos tarjeta y efectivo. Hay WiFi, terraza y estacionamiento."
+             data-en="We take card and cash. WiFi, outdoor terrace, and parking available.">
+            Aceptamos tarjeta y efectivo. Hay WiFi, terraza y estacionamiento.
+          </p>
+
+          <div class="contact-no-reservations reveal">
+            <p data-es="Sin reservaciones. Llega y encuentra tu mesa."
+               data-en="No reservations. Walk in and find your spot.">
+              Sin reservaciones. Llega y encuentra tu mesa.
+            </p>
+          </div>
+
+          <table class="hours-table" aria-label="Horario / Hours">
+            <tbody>
+              <tr>
+                <th scope="row" data-es="Lun-Jue" data-en="Mon-Thu">Lun-Jue</th>
+                <td>3PM &#8211; 11PM<sup>*</sup></td>
+              </tr>
+              <tr>
+                <th scope="row" data-es="Vie-S&#225;b" data-en="Fri-Sat">Vie-S&#225;b</th>
+                <td>12PM &#8211; 12AM</td>
+              </tr>
+              <tr>
+                <th scope="row" data-es="Dom" data-en="Sun">Dom</th>
+                <td>12PM &#8211; 11PM</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="hours-footnote"
+             data-es="* Horario sujeto a confirmaci&#243;n / Hours subject to confirmation."
+             data-en="* Hours subject to confirmation.">* Horario sujeto a confirmaci&#243;n / Hours subject to confirmation.</p>
+
+          <!-- Social row -->
+          <div class="contact-social">
+            <a href="https://facebook.com/Leosbarrp" target="_blank" rel="noopener noreferrer"
+               aria-label="Leo's Bar en Facebook" class="social-icon">
+              <!-- Facebook SVG -->
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+              </svg>
+            </a>
+            <a href="https://instagram.com/leosbarrp" target="_blank" rel="noopener noreferrer"
+               aria-label="Leo's Bar en Instagram" class="social-icon">
+              <!-- Instagram SVG -->
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: map -->
+        <div class="contact-map reveal">
+          <iframe
+            title="Leo's Bar en Google Maps"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3577.7!2d-113.5368!3d31.3036!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86a2859d6629b35f%3A0x1bff51d78a7cf719!2sLeo's%20Bar!5e0!3m2!1ses!2smx!4v1"
+            width="100%"
+            height="340"
+            style="border:0;border-radius:8px;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+
+      </div><!-- /.contact-grid -->
+    </div><!-- /.contact-inner -->
+  </section>
+
+  <!-- ======================================================= -->
+  <!-- Footer                                                   -->
+  <!-- ======================================================= -->
+  <footer id="footer">
+    <div class="footer-rule" aria-hidden="true"></div>
+    <div class="footer-inner">
+
+      <div class="footer-col footer-brand">
+        <a href="#hero" class="footer-logo-link" aria-label="Leo's Bar inicio">
+          <img src="assets/logo.jpg" alt="Leo's Bar logo" width="32" height="32" />
+          <span class="footer-logo-text">Leo's Bar</span>
+        </a>
+        <p class="footer-tagline"
+           data-es="En el Puerto Viejo desde 2021."
+           data-en="In Old Port since 2021.">En el Puerto Viejo desde 2021.</p>
+      </div>
+
+      <div class="footer-col footer-social">
+        <div class="footer-social-icons">
+          <a href="https://facebook.com/Leosbarrp" target="_blank" rel="noopener noreferrer"
+             aria-label="Facebook" class="social-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+            </svg>
+          </a>
+          <a href="https://instagram.com/leosbarrp" target="_blank" rel="noopener noreferrer"
+             aria-label="Instagram" class="social-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+            </svg>
+          </a>
+        </div>
+        <p class="footer-circus"
+           data-es="Circus Mexicus 2026 -- Venue Oficial"
+           data-en="Circus Mexicus 2026 -- Official Venue">Circus Mexicus 2026 -- Venue Oficial</p>
+      </div>
+
+      <div class="footer-col footer-contact">
+        <p>Calle Alc&#225;ntar 49, Puerto Viejo, Puerto Pe&#241;asco</p>
+        <a href="tel:+526386900951" class="footer-phone">+52 638 690 0951</a>
+        <p class="footer-hours-line"
+           data-es="Abierto desde el mediod&#237;a. Llama para confirmar horario."
+           data-en="Open from noon. Call to confirm hours.">Abierto desde el mediod&#237;a. Llama para confirmar horario.</p>
+        <p class="footer-copy">&#169; 2026 Leo's Bar.</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/i18n.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
