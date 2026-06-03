@@ -19,14 +19,14 @@
   --bougainvillea:  #D44060;
   --green:          #4A7040;
   --gold-light:     #F0C060;
-  --bg:             #1A1A1A;
-  --bg-warm:        #241810;
-  --bg-footer:      #120D08;
-  --bg-story:       #1E1208;
-  --text:           #F5F0E5;
-  --text-muted:     rgba(245, 240, 229, 0.60);
-  --amber-border:   rgba(200, 146, 42, 0.20);
-  --amber-card-bg:  rgba(200, 146, 42, 0.07);
+  --bg:             #F2E8D9;
+  --bg-warm:        #E8D9C4;
+  --bg-footer:      #2E1F13;
+  --bg-story:       #DDD0BA;
+  --text:           #2A1A0E;
+  --text-muted:     rgba(42, 26, 14, 0.62);
+  --amber-border:   rgba(160, 100, 20, 0.28);
+  --amber-card-bg:  rgba(200, 146, 42, 0.13);
 
   /* Typography */
   --font-display: 'Playfair Display', serif;
@@ -168,7 +168,6 @@ body[data-lang="en"] [data-hide-en] { display: none !important; }
   width: 120px;
   height: auto;
   object-fit: contain;
-  filter: invert(1) brightness(1.1);
   opacity: 0;
   animation: loaderFadeIn 0.5s ease forwards 0.1s;
 }
@@ -214,8 +213,8 @@ nav {
 }
 
 nav.scrolled {
-  background: rgba(26, 26, 26, 0.97);
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+  background: rgba(232, 217, 196, 0.97);
+  box-shadow: 0 2px 20px rgba(42, 26, 14, 0.15);
 }
 
 .nav-logo {
@@ -230,7 +229,6 @@ nav.scrolled {
   height: 38px;
   width: auto;
   object-fit: contain;
-  filter: invert(1) brightness(1.1);
 }
 
 .nav-logo-text {
@@ -295,7 +293,7 @@ nav.scrolled {
 }
 
 .lang-toggle:hover {
-  background: rgba(200, 146, 42, 0.1);
+  background: rgba(200, 146, 42, 0.22);
 }
 
 .lang-toggle .lt-en,
@@ -375,7 +373,7 @@ nav.scrolled {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(26, 26, 26, 0.98);
+  background: rgba(46, 31, 19, 0.98);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -472,7 +470,7 @@ nav.scrolled {
   font-family: var(--font-display);
   font-weight: 800;
   font-size: clamp(1.9rem, 6vw, 4rem);
-  color: var(--text);
+  color: #F5F0E5;
   line-height: 1.15;
   margin-bottom: 1rem;
   max-width: 780px;
@@ -648,13 +646,13 @@ nav.scrolled {
 
 .badge-circus {
   border: 2px solid var(--bougainvillea);
-  background: rgba(212, 64, 96, 0.08);
+  background: rgba(212, 64, 96, 0.10);
   animation: badgePulse 2.5s ease-in-out 1s 1;
 }
 
 .badge-artwalk {
   border: 2px solid var(--amber);
-  background: rgba(200, 146, 42, 0.08);
+  background: rgba(200, 146, 42, 0.13);
 }
 
 @keyframes badgePulse {
@@ -761,7 +759,7 @@ nav.scrolled {
 }
 
 .menu-item {
-  border-bottom: 1px solid rgba(200, 146, 42, 0.1);
+  border-bottom: 1px solid rgba(200, 146, 42, 0.22);
   padding-bottom: 0.75rem;
 }
 
@@ -891,8 +889,8 @@ nav.scrolled {
   top: 1.2rem;
   right: 1.5rem;
   background: none;
-  border: 1px solid var(--text-muted);
-  color: var(--text);
+  border: 1px solid rgba(245, 240, 229, 0.6);
+  color: #F5F0E5;
   font-size: 1.1rem;
   width: 44px;
   height: 44px;
@@ -983,8 +981,8 @@ nav.scrolled {
 }
 
 .review-card {
-  background: rgba(200, 146, 42, 0.06);
-  border: 1px solid rgba(200, 146, 42, 0.18);
+  background: rgba(200, 146, 42, 0.13);
+  border: 1px solid rgba(200, 146, 42, 0.30);
   border-radius: var(--radius);
   padding: 1.5rem;
   display: flex;
@@ -1132,7 +1130,7 @@ nav.scrolled {
 .hours-table th,
 .hours-table td {
   padding: 0.5rem 0;
-  border-bottom: 1px solid rgba(200, 146, 42, 0.1);
+  border-bottom: 1px solid rgba(200, 146, 42, 0.22);
   font-size: 0.9rem;
   line-height: 1.4;
 }
