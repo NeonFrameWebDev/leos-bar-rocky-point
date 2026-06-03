@@ -19,10 +19,10 @@
   --bougainvillea:  #D44060;
   --green:          #4A7040;
   --gold-light:     #F0C060;
-  --bg:             #F2E8D9;
-  --bg-warm:        #E8D9C4;
+  --bg:             #C8B090;
+  --bg-warm:        #B89A78;
   --bg-footer:      #2E1F13;
-  --bg-story:       #DDD0BA;
+  --bg-story:       #A88860;
   --text:           #2A1A0E;
   --text-muted:     rgba(42, 26, 14, 0.62);
   --amber-border:   rgba(160, 100, 20, 0.28);
@@ -213,7 +213,7 @@ nav {
 }
 
 nav.scrolled {
-  background: rgba(232, 217, 196, 0.97);
+  background: rgba(184, 154, 120, 0.97);
   box-shadow: 0 2px 20px rgba(42, 26, 14, 0.15);
 }
 
