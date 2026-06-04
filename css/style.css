@@ -724,19 +724,19 @@ nav.scrolled {
 }
 
 .menu-layout {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 1.75rem;
+  align-items: start;
 }
 
 .menu-banner-photo {
   width: 100%;
-  height: 280px;
-  object-fit: cover;
-  object-position: center 55%;
+  height: auto;
+  display: block;
   border-radius: var(--radius);
   border: 2px solid var(--amber);
-  display: block;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
 }
 
 .menu-grid {
@@ -1471,9 +1471,6 @@ nav.scrolled {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  .menu-banner-photo {
-    height: 240px;
-  }
 }
 
 /* ============================================================
@@ -1487,6 +1484,6 @@ nav.scrolled {
 }
 
 @media (max-width: 700px) {
+  .menu-layout { grid-template-columns: 1fr; }
   .menu-grid { grid-template-columns: 1fr; }
-  .menu-banner-photo { height: 180px; }
 }
