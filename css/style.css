@@ -732,16 +732,15 @@ nav.scrolled {
 .menu-logo-wrap {
   display: flex;
   justify-content: center;
-  margin-top: 1.25rem;
+  margin-top: 3rem;
 }
 
 .menu-logo {
-  width: 100px;
-  height: 100px;
+  width: 260px;
+  height: auto;
   object-fit: contain;
-  border-radius: 50%;
-  border: 2px solid var(--amber);
-  box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+  border-radius: var(--radius);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
 }
 
 .menu-photo {
