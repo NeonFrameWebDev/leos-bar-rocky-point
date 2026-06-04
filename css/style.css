@@ -725,6 +725,9 @@ nav.scrolled {
 
 .menu-photo-wrap {
   margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
 }
 
 .menu-logo-wrap {
@@ -1485,20 +1488,21 @@ nav.scrolled {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  /* Menu: photo floats right, columns side by side */
+  /* Menu: photo stack floats right, columns side by side */
   .menu-inner {
     position: relative;
   }
 
   .menu-photo-wrap {
     float: right;
-    width: 360px;
+    width: 340px;
     margin: 0 0 1.5rem 2rem;
+    gap: 0.75rem;
   }
 
   .menu-photo {
-    width: 360px;
-    height: 270px;
+    width: 340px;
+    height: 240px;
     object-fit: cover;
   }
 
