@@ -730,6 +730,16 @@ nav.scrolled {
   align-items: center;
 }
 
+.menu-photo-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.menu-photo-col .section-header {
+  text-align: left;
+  margin-bottom: 0;
+}
+
 .menu-banner-photo {
   width: 100%;
   height: auto;
