@@ -452,9 +452,9 @@ nav.scrolled {
   inset: 0;
   background: linear-gradient(
     to bottom,
-    rgba(26, 26, 26, 0.18) 0%,
-    rgba(26, 26, 26, 0.18) 50%,
-    rgba(26, 26, 26, 0.70) 100%
+    rgba(26, 26, 26, 0.10) 0%,
+    rgba(26, 26, 26, 0.35) 55%,
+    rgba(26, 26, 26, 0.88) 100%
   );
 }
 
@@ -487,6 +487,7 @@ nav.scrolled {
   max-width: 780px;
   margin-left: auto;
   margin-right: auto;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.7), 0 1px 3px rgba(0,0,0,0.9);
 }
 
 .hero-sub {
@@ -497,6 +498,7 @@ nav.scrolled {
   max-width: 600px;
   margin: 0 auto 1.8rem;
   line-height: 1.6;
+  text-shadow: 0 1px 6px rgba(0,0,0,0.8);
 }
 
 .hero-ctas {
