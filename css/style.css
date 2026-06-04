@@ -66,8 +66,7 @@ a {
 #venue-badges,
 #menu,
 #entertainment,
-#reviews,
-.story-text {
+#reviews {
   --text:       #2A1A0E;
   --text-muted: rgba(42, 26, 14, 0.65);
 }
@@ -936,33 +935,100 @@ nav.scrolled {
 /* ── Story ────────────────────────────────────────────────── */
 #story {
   background: var(--bg);
-  padding: 4rem var(--edge);
+  padding: 5rem var(--edge);
+  position: relative;
+  overflow: hidden;
+}
+
+#story::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 480px;
+  height: 480px;
+  background: url('assets/logo.jpg') center / contain no-repeat;
+  opacity: 0.04;
+  border-radius: 50%;
+  pointer-events: none;
 }
 
 .story-inner {
   max-width: 720px;
   margin: 0 auto;
+  position: relative;
+}
+
+.story-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 2.5rem 0 3rem;
+  border: 1px solid var(--amber-border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.story-stat {
+  text-align: center;
+  padding: 1.5rem 1rem;
+  border-right: 1px solid var(--amber-border);
+}
+.story-stat:last-child { border-right: none; }
+
+.story-stat__num {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--amber);
+  text-shadow: 0 0 20px rgba(200,146,42,0.4);
+  line-height: 1.1;
+  margin-bottom: 0.3rem;
+}
+
+.story-stat__star { font-size: 1.4rem; }
+
+.story-stat__lbl {
+  display: block;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  font-family: var(--font-display);
 }
 
 .story-text {
-  border-left: 3px solid var(--amber);
-  background: #EDD9B8;
-  padding: 1.75rem 1.75rem 1.75rem 1.5rem;
-  border-radius: 0 var(--radius) var(--radius) 0;
+  border-left: none;
+  background: transparent;
+  padding: 0;
+  position: relative;
+  padding-left: 1rem;
+}
+
+.story-text::before {
+  content: '\201C';
+  position: absolute;
+  left: -1rem;
+  top: -2.5rem;
+  font-family: var(--font-display);
+  font-size: 9rem;
+  color: var(--amber);
+  opacity: 0.2;
+  line-height: 1;
+  pointer-events: none;
 }
 
 .story-text p {
   font-family: var(--font-body);
   font-weight: 400;
-  font-size: 1rem;
+  font-size: 1.05rem;
   color: var(--text);
-  line-height: 1.7;
-  margin-bottom: 1.2rem;
+  line-height: 1.8;
+  margin-bottom: 1.4rem;
 }
 
-.story-text p:last-child {
-  margin-bottom: 0;
-}
+.story-text p:last-child { margin-bottom: 0; }
 
 /* ── Entertainment ────────────────────────────────────────── */
 #entertainment {
