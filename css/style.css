@@ -731,9 +731,9 @@ nav.scrolled {
 
 .menu-banner-photo {
   width: 100%;
-  height: 200px;
+  height: 280px;
   object-fit: cover;
-  object-position: center 60%;
+  object-position: center 55%;
   border-radius: var(--radius);
   border: 2px solid var(--amber);
   display: block;
@@ -741,8 +741,8 @@ nav.scrolled {
 
 .menu-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
 }
 
 .menu-col-title {
@@ -1486,7 +1486,7 @@ nav.scrolled {
   }
 }
 
-@media (max-width: 560px) {
+@media (max-width: 700px) {
   .menu-grid { grid-template-columns: 1fr; }
-  .menu-banner-photo { height: 160px; }
+  .menu-banner-photo { height: 180px; }
 }
