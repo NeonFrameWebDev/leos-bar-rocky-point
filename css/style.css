@@ -725,9 +725,9 @@ nav.scrolled {
 
 .menu-layout {
   display: grid;
-  grid-template-columns: 240px 1fr;
+  grid-template-columns: 290px 1fr;
   gap: 1.75rem;
-  align-items: start;
+  align-items: center;
 }
 
 .menu-banner-photo {
