@@ -13,7 +13,7 @@
   <meta property="og:url" content="https://neonframewebdev.github.io/leos-bar-rocky-point/" />
   <meta property="og:title" content="Leo's Bar | Puerto Viejo, Puerto Pe&#241;asco" />
   <meta property="og:description" content="Tacos de Gobernador en tortilla de nopal, m&#250;sica en vivo y terraza con sombra. 313 rese&#241;as en Google, 4.8 estrellas. Calle Alc&#225;ntar, Puerto Pe&#241;asco, Sonora." />
-  <meta property="og:image" content="https://neonframewebdev.github.io/leos-bar-rocky-point/assets/hero-crowd.webp" />
+  <meta property="og:image" content="https://neonframewebdev.github.io/leos-bar-rocky-point/assets/event_2.jpg" />
   <meta property="og:locale" content="es_MX" />
   <meta property="og:locale:alternate" content="en_US" />
 
@@ -21,7 +21,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Leo's Bar | Puerto Pe&#241;asco, Sonora" />
   <meta name="twitter:description" content="Tacos de Gobernador, terraza con sombra y m&#250;sica en vivo. El mejor restaurante del Puerto Viejo." />
-  <meta name="twitter:image" content="https://neonframewebdev.github.io/leos-bar-rocky-point/assets/hero-crowd.webp" />
+  <meta name="twitter:image" content="https://neonframewebdev.github.io/leos-bar-rocky-point/assets/event_2.jpg" />
 
   <!-- Favicon -->
   <link rel="icon" type="image/jpeg" href="assets/logo.jpg" />
@@ -32,7 +32,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet" />
 
   <!-- Preload hero image -->
-  <link rel="preload" as="image" href="assets/hero-crowd.webp" />
+  <link
+    rel="preload"
+    as="image"
+    imagesrcset="assets/event_2_sm.webp 1280w, assets/event_2_md.webp 1920w, assets/event_2_lg.webp 2844w"
+    imagesizes="100vw"
+  />
 
   <!-- Styles -->
   <link rel="stylesheet" href="css/style.css" />
@@ -118,13 +123,30 @@
   <!-- Hero                                                     -->
   <!-- ======================================================= -->
   <section id="hero" aria-label="Hero">
-    <img
-      class="hero-img"
-      src="assets/hero-crowd.webp"
-      alt="El patio de Leo's Bar lleno de gente con m&#250;sica en vivo en el Puerto Viejo de Puerto Pe&#241;asco"
-      fetchpriority="high"
-      decoding="async"
-    />
+    <picture>
+      <!-- Portrait surfaces (phones, the pitch tablet at 768x1024): this wide photo in a full-height
+           hero is cropped/scaled on HEIGHT, so request a larger file than the narrow width implies. -->
+      <source
+        type="image/webp"
+        media="(orientation: portrait)"
+        srcset="assets/event_2_md.webp 1920w, assets/event_2_lg.webp 2844w"
+        sizes="200vw"
+      />
+      <source
+        type="image/webp"
+        srcset="assets/event_2_sm.webp 1280w, assets/event_2_md.webp 1920w, assets/event_2_lg.webp 2844w"
+        sizes="100vw"
+      />
+      <img
+        class="hero-img"
+        src="assets/event_2.jpg"
+        width="2844"
+        height="1494"
+        alt="El patio de Leo's Bar con &#225;rbol de sombra, banderas y mural en el Puerto Viejo de Puerto Pe&#241;asco"
+        fetchpriority="high"
+        decoding="async"
+      />
+    </picture>
     <div class="hero-overlay" aria-hidden="true"></div>
 
     <div class="hero-content">
