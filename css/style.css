@@ -535,7 +535,7 @@ nav.scrolled {
 
 /* ── Trust Bar ────────────────────────────────────────────── */
 #trust-bar {
-  background: #FFF8F2;
+  background: #F5E6CC;
   padding: 0 var(--edge);
   min-height: 56px;
   display: flex;
@@ -629,7 +629,7 @@ nav.scrolled {
 
 /* ── Venue Badge Strip ────────────────────────────────────── */
 #venue-badges {
-  background: #FFF8F2;
+  background: #F5E6CC;
   padding: 4rem var(--edge);
 }
 
@@ -716,7 +716,7 @@ nav.scrolled {
 
 /* ── Menu ─────────────────────────────────────────────────── */
 #menu {
-  background: #FFF8F2;
+  background: #F5E6CC;
   padding: 4rem var(--edge);
 }
 
@@ -933,7 +933,7 @@ nav.scrolled {
 
 .story-text {
   border-left: 3px solid var(--amber);
-  background: #FFF4EC;
+  background: #EDD9B8;
   padding: 1.75rem 1.75rem 1.75rem 1.5rem;
   border-radius: 0 var(--radius) var(--radius) 0;
 }
@@ -953,7 +953,7 @@ nav.scrolled {
 
 /* ── Entertainment ────────────────────────────────────────── */
 #entertainment {
-  background: #FFF8F2;
+  background: #F5E6CC;
   padding: 4rem var(--edge);
 }
 
@@ -981,7 +981,7 @@ nav.scrolled {
 
 /* ── Reviews ──────────────────────────────────────────────── */
 #reviews {
-  background: #FFF8F2;
+  background: #F5E6CC;
   padding: 4rem var(--edge);
 }
 
