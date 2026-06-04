@@ -20,9 +20,9 @@
   --green:          #4A7040;
   --gold-light:     #F0C060;
   --bg:             #1E3A58;
-  --bg-warm:        #3A2210;
-  --bg-footer:      #1E1008;
-  --bg-story:       #2E1C0A;
+  --bg-warm:        #EDE0C8;
+  --bg-footer:      #0A1828;
+  --bg-story:       #E0D0B4;
   --text:           #F5F0E5;
   --text-muted:     rgba(245, 240, 229, 0.60);
   --amber-border:   rgba(200, 146, 42, 0.20);
@@ -59,6 +59,17 @@ img {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+/* ── Cream section text overrides ────────────────────────── */
+#trust-bar,
+#venue-badges,
+#menu,
+#entertainment,
+#reviews,
+.story-text {
+  --text:       #2A1A0E;
+  --text-muted: rgba(42, 26, 14, 0.65);
 }
 
 /* ── Language visibility rules ────────────────────────────── */
