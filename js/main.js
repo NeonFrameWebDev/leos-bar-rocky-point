@@ -60,20 +60,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  /* ── Hero parallax (JS avoids iOS background-attachment:fixed bug) */
-  const heroImg = document.querySelector(".hero-img");
-  const heroSection = document.getElementById("hero");
-
-  if (heroImg && heroSection) {
-    function parallaxHero() {
-      const scrollY = window.scrollY;
-      const heroHeight = heroSection.offsetHeight;
-      if (scrollY <= heroHeight) {
-        heroImg.style.transform = "translateY(" + (scrollY * 0.08) + "px)";
-      }
-    }
-    window.addEventListener("scroll", parallaxHero, { passive: true });
-  }
 
   /* ── Scroll cue hide ─────────────────────────────────────── */
   const scrollCue = document.querySelector(".hero-scroll-cue");
