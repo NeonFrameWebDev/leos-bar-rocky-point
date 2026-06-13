@@ -31,13 +31,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet" />
 
-  <!-- Preload hero image -->
-  <link
-    rel="preload"
-    as="image"
-    imagesrcset="assets/event_2_sm.webp 1280w, assets/event_2_md.webp 1920w, assets/event_2_lg.webp 2844w"
-    imagesizes="100vw"
-  />
+  <!-- Preload the anchor crest used by the animated hero -->
+  <link rel="preload" as="image" href="assets/logo.jpg" />
 
   <!-- Styles -->
   <link rel="stylesheet" href="css/style.css" />
@@ -123,30 +118,15 @@
   <!-- Hero                                                     -->
   <!-- ======================================================= -->
   <section id="hero" aria-label="Hero">
-    <picture>
-      <!-- Portrait surfaces (phones, the pitch tablet at 768x1024): this wide photo in a full-height
-           hero is cropped/scaled on HEIGHT, so request a larger file than the narrow width implies. -->
-      <source
-        type="image/webp"
-        media="(orientation: portrait)"
-        srcset="assets/event_2_md.webp 1920w, assets/event_2_lg.webp 2844w"
-        sizes="200vw"
-      />
-      <source
-        type="image/webp"
-        srcset="assets/event_2_sm.webp 1280w, assets/event_2_md.webp 1920w, assets/event_2_lg.webp 2844w"
-        sizes="100vw"
-      />
+    <!-- "Drop Anchor": animated underwater scene built around the Leo's anchor crest (js/anchor.js) -->
+    <canvas id="anchor-canvas" class="hero-canvas" aria-hidden="true"></canvas>
+    <noscript>
       <img
         class="hero-img"
-        src="assets/event_2.jpg"
-        width="2844"
-        height="1494"
+        src="assets/event_2_sm.webp"
         alt="El patio de Leo's Bar con &#225;rbol de sombra, banderas y mural en el Puerto Viejo de Puerto Pe&#241;asco"
-        fetchpriority="high"
-        decoding="async"
       />
-    </picture>
+    </noscript>
     <div class="hero-overlay" aria-hidden="true"></div>
 
     <div class="hero-content">
@@ -928,5 +908,6 @@
   <!-- Scripts -->
   <script src="js/i18n.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/anchor.js" defer></script>
 </body>
 </html>
