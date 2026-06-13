@@ -39,7 +39,7 @@
   // brand crest
   var logo = new Image(), logoReady = false;
   logo.onload = function () { logoReady = true; if (!running && revealed) paint(0); };
-  logo.src = "assets/logo.jpg";
+  logo.src = "assets/logo_hd.png";    // high-res vector render of the anchor crest
 
   // anchor geometry (computed on resize)
   var aCx = 0, aCy = 0, aSize = 0;
@@ -140,11 +140,17 @@
     py += (pty - py) * Math.min(1, dt * 3);
 
     if (revealed) {
-      entered += (1 - entered) * Math.min(1, dt * 3);
-      // spring the crest down into place (slight overshoot, then settle)
-      dropV += (-dropOff * 90 - dropV * 11) * dt;
-      dropOff += dropV * dt;
-      if (!landed && dropOff > -6 && dropV > 0) { landed = true; landT = time; rippleBurst(); }
+      entered += (1 - entered) * Math.min(1, dt * 7);
+      if (!landed) {
+        // a real, visible fall: gravity accelerates the crest down on its chain
+        dropV += 1500 * dt;
+        dropOff += dropV * dt;
+        if (dropOff >= 0) { dropOff = 0; dropV = -dropV * 0.26; landed = true; landT = time; }
+      } else {
+        // chain-yank settle: a small rebound that damps out into the idle sway
+        dropV += (-dropOff * 130 - dropV * 9) * dt;
+        dropOff += dropV * dt;
+      }
     }
 
     // bubbles
@@ -160,8 +166,6 @@
       if (s.y > H + 4) { s.y = -4; s.x = Math.random() * W; }
     }
   }
-
-  function rippleBurst() { /* marker; the flash is drawn from landT in paint */ }
 
   // ---- render -------------------------------------------------------------
   function drawWater() {
@@ -365,14 +369,15 @@
       var cs = window.getComputedStyle(loader);
       if (!document.body.contains(loader) || cs.display === "none" || cs.visibility === "hidden" ||
           parseFloat(cs.opacity) < 0.05 || loader.offsetParent === null) { done = true; cb(); return; }
-      if (++ticks > 400) { done = true; cb(); return; }
+      if (++ticks > 150) { done = true; cb(); return; }   // ~2.5s safety fallback
       requestAnimationFrame(check);
     })();
   }
 
   function beginDrop() {
     revealed = true; landed = false; landT = -1;
-    dropOff = -(aCy + H * 0.55); dropV = 0; entered = 0;
+    dropOff = -(aCy + aSize);        // start just above the top of the frame
+    dropV = 0; entered = 0;
   }
 
   // ---- inputs / lifecycle -------------------------------------------------
