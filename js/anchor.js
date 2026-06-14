@@ -20,8 +20,8 @@
   var W = 0, H = 0, DPR = 1;
   var raf = null, running = false, t0 = 0, lastT = 0, time = 0, visible = true;
 
-  // reveal + anchor-drop spring
-  var revealed = false, dropOff = 0, dropV = 0, landed = false, entered = 0, landT = -1;
+  // reveal + slow "lowered from a boat" descent
+  var revealed = false, dropOff = 0, dropStart = 0, descT = 0, landed = false, entered = 0, landT = -1;
 
   // pointer parallax (eased)
   var ptx = 0, pty = 0, px = 0, py = 0;
@@ -29,6 +29,9 @@
   // particles
   var bubbles = [], snow = [];
   var MAXBUB = 26;
+
+  // marine life
+  var fishSchools = [], sharks = [], jellies = [];
 
   // god rays
   var rays = [];
@@ -121,6 +124,125 @@
       w: 0.4 + Math.random() * 1.4, a: 0.18 + Math.random() * 0.34 });
   }
 
+  // ---- marine life (silhouettes drifting in the deep, behind the crest) ----
+  function makeSchool() {
+    var dir = Math.random() < 0.5 ? 1 : -1;
+    var n = 7 + (Math.random() * 12 | 0), fish = [];
+    for (var i = 0; i < n; i++) fish.push({
+      dx: (Math.random() - 0.5) * W * 0.16, dy: (Math.random() - 0.5) * H * 0.10,
+      ph: Math.random() * 6.283, sp: 6 + Math.random() * 6, sz: 0.8 + Math.random() * 0.6 });
+    return { x: dir > 0 ? -W * 0.2 : W * 1.2, y: H * (0.2 + Math.random() * 0.55),
+      dir: dir, vx: dir * (16 + Math.random() * 16), size: 3 + Math.random() * 2,
+      depth: 0.35 + Math.random() * 0.5, fish: fish };
+  }
+  function makeShark(i) {
+    var dir = i % 2 === 0 ? 1 : -1;
+    return { x: dir > 0 ? -W * 0.55 : W * 1.55, y: H * (0.18 + Math.random() * 0.42),
+      dir: dir, vx: dir * (20 + Math.random() * 14), size: 30 + Math.random() * 26,
+      ph: Math.random() * 6.283, depth: 0.22 + Math.random() * 0.3 };
+  }
+  function makeJelly() {
+    return { x: Math.random() * W, y: H * (0.35 + Math.random() * 0.85),
+      size: 7 + Math.random() * 12, ph: Math.random() * 6.283,
+      vy: 5 + Math.random() * 8, sway: Math.random() * 6.283, depth: 0.4 + Math.random() * 0.5 };
+  }
+  function seedCritters() {
+    var s, k, j;
+    fishSchools = []; for (s = 0; s < (W < 700 ? 1 : 2); s++) fishSchools.push(makeSchool());
+    sharks = []; for (k = 0; k < (W < 700 ? 1 : 2); k++) sharks.push(makeShark(k));
+    jellies = []; for (j = 0; j < (W < 700 ? 2 : 3); j++) jellies.push(makeJelly());
+    for (s = 0; s < fishSchools.length; s++) fishSchools[s].x = Math.random() * W;   // stagger
+    for (k = 0; k < sharks.length; k++) sharks[k].x = Math.random() * W;
+  }
+  function stepCritters(dt) {
+    var i, c;
+    for (i = 0; i < fishSchools.length; i++) {
+      c = fishSchools[i]; c.x += c.vx * dt;
+      if ((c.dir > 0 && c.x > W * 1.3) || (c.dir < 0 && c.x < -W * 0.3)) fishSchools[i] = makeSchool();
+    }
+    for (i = 0; i < sharks.length; i++) {
+      c = sharks[i]; c.x += c.vx * dt; c.ph += dt * 2.0;
+      if ((c.dir > 0 && c.x > W * 1.65) || (c.dir < 0 && c.x < -W * 0.65)) sharks[i] = makeShark(i);
+    }
+    for (i = 0; i < jellies.length; i++) {
+      c = jellies[i]; c.y -= c.vy * dt; c.ph += dt * 1.6; c.x += Math.sin(time + c.sway) * 5 * dt;
+      if (c.y < -c.size * 2) { c.y = H + c.size * 2; c.x = Math.random() * W; }
+    }
+  }
+
+  function drawFishShape(x, y, s, dir, alpha, phase) {
+    ctx.save(); ctx.translate(x, y); ctx.scale(dir, 1);
+    var wig = Math.sin(phase) * s * 0.5;
+    ctx.fillStyle = "rgba(165,198,224," + alpha.toFixed(3) + ")";
+    ctx.beginPath(); ctx.ellipse(0, 0, s * 1.6, s * 0.7, 0, 0, 6.2832); ctx.fill();
+    ctx.beginPath();
+    ctx.moveTo(-s * 1.3, 0); ctx.lineTo(-s * 2.5, -s * 0.7 + wig); ctx.lineTo(-s * 2.5, s * 0.7 + wig);
+    ctx.closePath(); ctx.fill();
+    ctx.restore();
+  }
+  function drawSchools() {
+    for (var i = 0; i < fishSchools.length; i++) {
+      var c = fishSchools[i], a = 0.22 + c.depth * 0.18;
+      var par = px * 14 * c.depth, pary = py * 8 * c.depth;
+      for (var f = 0; f < c.fish.length; f++) {
+        var fi = c.fish[f];
+        var fx = c.x + fi.dx + par + Math.sin(time * 1.4 + fi.ph) * 3;
+        var fy = c.y + fi.dy + pary + Math.sin(time * fi.sp * 0.2 + fi.ph) * c.size * 0.7;
+        drawFishShape(fx, fy, c.size * fi.sz, c.dir, a, time * fi.sp + fi.ph);
+      }
+    }
+  }
+  function drawSharks() {
+    for (var i = 0; i < sharks.length; i++) {
+      var c = sharks[i], a = 0.30 + c.depth * 0.26, s = c.size;
+      var x = c.x + px * 10 * c.depth, y = c.y + py * 6 * c.depth + Math.sin(time * 0.5 + c.ph) * s * 0.12;
+      var wag = Math.sin(c.ph) * s * 0.16;
+      ctx.save(); ctx.translate(x, y); ctx.scale(c.dir, 1);
+      ctx.fillStyle = "rgba(86,120,158," + a.toFixed(3) + ")";
+      ctx.beginPath();
+      ctx.moveTo(s * 1.7, 0);
+      ctx.quadraticCurveTo(s * 0.5, -s * 0.46, -s * 0.9, -s * 0.18);
+      ctx.lineTo(-s * 1.6, -s * 0.52 + wag);
+      ctx.lineTo(-s * 1.25, wag * 0.5);
+      ctx.lineTo(-s * 1.6, s * 0.48 + wag);
+      ctx.quadraticCurveTo(s * 0.2, s * 0.42, s * 1.7, 0);
+      ctx.closePath(); ctx.fill();
+      ctx.beginPath();                                  // dorsal fin
+      ctx.moveTo(s * 0.15, -s * 0.4); ctx.lineTo(-s * 0.15, -s * 1.0); ctx.lineTo(-s * 0.55, -s * 0.34);
+      ctx.closePath(); ctx.fill();
+      ctx.beginPath();                                  // pectoral fin
+      ctx.moveTo(s * 0.5, s * 0.2); ctx.lineTo(s * 0.05, s * 0.78); ctx.lineTo(s * 0.0, s * 0.28);
+      ctx.closePath(); ctx.fill();
+      ctx.restore();
+    }
+  }
+  function drawJellies() {
+    for (var i = 0; i < jellies.length; i++) {
+      var c = jellies[i], pulse = 0.82 + 0.18 * Math.sin(c.ph), a = 0.16 + c.depth * 0.12;
+      var x = c.x + px * 12 * c.depth, y = c.y, s = c.size * pulse;
+      ctx.save();
+      var bell = ctx.createRadialGradient(x, y - s * 0.3, s * 0.1, x, y, s * 1.2);
+      bell.addColorStop(0, "rgba(185,215,238," + (a * 1.8).toFixed(3) + ")");
+      bell.addColorStop(1, "rgba(150,190,225,0)");
+      ctx.fillStyle = bell;
+      ctx.beginPath();
+      ctx.moveTo(x - s, y);
+      ctx.quadraticCurveTo(x, y - s * 1.7, x + s, y);
+      ctx.quadraticCurveTo(x, y + s * 0.35, x - s, y);
+      ctx.closePath(); ctx.fill();
+      ctx.strokeStyle = "rgba(175,208,234," + (a * 0.7).toFixed(3) + ")"; ctx.lineWidth = 1.1;
+      for (var t = 0; t < 5; t++) {
+        var tx = x - s * 0.55 + t * (s * 0.27);
+        ctx.beginPath(); ctx.moveTo(tx, y + s * 0.1);
+        ctx.quadraticCurveTo(tx + Math.sin(time * 2 + t + c.sway) * s * 0.4, y + s * 0.9,
+          tx + Math.sin(time * 1.5 + t) * s * 0.3, y + s * 1.7);
+        ctx.stroke();
+      }
+      ctx.restore();
+    }
+  }
+  function drawCritters() { drawSharks(); drawSchools(); drawJellies(); }
+
   // ---- sizing -------------------------------------------------------------
   function resize() {
     DPR = Math.min(window.devicePixelRatio || 1, 2);
@@ -129,7 +251,7 @@
     canvas.width = Math.max(1, Math.round(W * DPR));
     canvas.height = Math.max(1, Math.round(H * DPR));
     ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
-    computeGeo(); makeRays(); seedSnow();
+    computeGeo(); makeRays(); seedSnow(); seedCritters();
     if (!caustic) buildCaustic();
     if (!running) { if (prefersReduce) renderStatic(); else paint(0); }
   }
@@ -140,16 +262,17 @@
     py += (pty - py) * Math.min(1, dt * 3);
 
     if (revealed) {
-      entered += (1 - entered) * Math.min(1, dt * 7);
+      entered += (1 - entered) * Math.min(1, dt * 4);
       if (!landed) {
-        // a real, visible fall: gravity accelerates the crest down on its chain
-        dropV += 1500 * dt;
-        dropOff += dropV * dt;
-        if (dropOff >= 0) { dropOff = 0; dropV = -dropV * 0.26; landed = true; landT = time; }
-      } else {
-        // chain-yank settle: a small rebound that damps out into the idle sway
-        dropV += (-dropOff * 130 - dropV * 9) * dt;
-        dropOff += dropV * dt;
+        // lowered slowly from a boat: a steady pay-out that eases to rest (the
+        // pendulum sway is applied in drawAnchor)
+        descT += dt;
+        var dur = 5.0;                                   // ~5s of deliberate lowering
+        var u = Math.min(1, descT / dur);
+        var e = u < 0.82 ? (u / 0.82) * 0.88             // steady descent
+                         : 0.88 + (1 - Math.pow(1 - (u - 0.82) / 0.18, 3)) * 0.12;  // gentle settle
+        dropOff = dropStart * (1 - e);
+        if (u >= 1) { dropOff = 0; landed = true; landT = time; }
       }
     }
 
@@ -165,6 +288,7 @@
       var s = snow[i]; s.y += s.vy * dt; s.x += Math.sin(time * s.dp + s.drift) * 4 * dt;
       if (s.y > H + 4) { s.y = -4; s.x = Math.random() * W; }
     }
+    stepCritters(dt);
   }
 
   // ---- render -------------------------------------------------------------
@@ -247,20 +371,21 @@
     }
   }
 
-  function drawChain(topY, anchorTopY, swayX) {
-    // a swaying chain from the top of frame down to the anchor's ring
-    var links = Math.max(4, Math.round((anchorTopY - topY) / (aSize * 0.10)));
-    if (links < 1) return;
+  function drawChain(topY, botY, botX) {
+    // chain from the top of the frame (the boat above) down to the swinging crest
+    var span = botY - topY; if (span < 1) return;
+    var links = Math.max(3, Math.round(span / (aSize * 0.11)));
+    var topX = W * 0.5 + px * 6;
     ctx.save();
-    ctx.lineWidth = Math.max(2, aSize * 0.018);
+    ctx.lineWidth = Math.max(1.5, aSize * 0.016);
+    ctx.strokeStyle = "rgba(225,212,170," + (0.28 * entered).toFixed(3) + ")";
     for (var i = 0; i <= links; i++) {
       var t = i / links;
-      var y = topY + (anchorTopY - topY) * t;
-      var x = W * 0.5 + px * 8 + Math.sin(time * 0.8 + t * 2) * swayX * t;
-      var rx = aSize * 0.034, ry = aSize * 0.05;
+      var y = topY + span * t;
+      var x = topX + (botX - topX) * t;        // straight to the crest; sways with it
+      var rx = aSize * 0.03, ry = aSize * 0.046;
       ctx.beginPath();
-      ctx.ellipse(x, y, (i % 2 ? rx * 0.6 : rx), ry, 0, 0, 6.2832);
-      ctx.strokeStyle = "rgba(225,212,170," + (0.30 * entered).toFixed(3) + ")";
+      ctx.ellipse(x, y, (i % 2 ? rx * 0.55 : rx), ry, 0, 0, 6.2832);
       ctx.stroke();
     }
     ctx.restore();
@@ -268,14 +393,16 @@
 
   function drawAnchor() {
     if (!logoReady) return;
+    // pendulum sway: strong while being lowered, damping into a gentle idle drift
+    var descend = landed ? Math.max(0, 1 - (time - landT) * 0.4) : 1;
+    var swing = Math.sin(time * 1.15) * aSize * 0.06 * descend + Math.sin(time * 0.5) * aSize * 0.015;
     var bob = landed ? Math.sin(time * 0.9) * (aSize * 0.012) : 0;
-    var rot = landed ? Math.sin(time * 0.6 + 1) * 0.018 : 0;
-    var cx = aCx + px * 10;
+    var rot = Math.sin(time * 1.15) * 0.045 * descend + Math.sin(time * 0.55 + 1) * 0.012;
+    var cx = aCx + px * 10 + swing;
     var cy = aCy + dropOff + bob;
-    var sway = aSize * 0.05;
 
-    // chain holding it up
-    drawChain(-4, cy - aSize * 0.5, sway);
+    // chain holding it up, hanging from the boat above
+    drawChain(-4, cy - aSize * 0.46, cx);
 
     // warm gold halo behind the crest (depth glow)
     ctx.save();
@@ -299,30 +426,6 @@
     ctx.globalAlpha = 0.30 * entered;
     ctx.drawImage(logo, -w / 2 - 1, -h / 2 - 1, w + 2, h + 2);
     ctx.restore();
-
-    // landing light burst + ripple
-    if (landed && landT >= 0) {
-      var lt = time - landT;
-      if (lt < 1.1) {
-        var k = lt / 1.1;
-        ctx.save();
-        ctx.globalCompositeOperation = "lighter";
-        // flash
-        var fa = (1 - k) * 0.5;
-        var fg = ctx.createRadialGradient(cx, cy, 0, cx, cy, aSize * (0.4 + k * 1.2));
-        fg.addColorStop(0, "rgba(255,244,210," + (fa * 0.8).toFixed(3) + ")");
-        fg.addColorStop(1, "rgba(255,244,210,0)");
-        ctx.fillStyle = fg; ctx.fillRect(cx - aSize * 2, cy - aSize * 2, aSize * 4, aSize * 4);
-        // expanding ring
-        ctx.globalAlpha = (1 - k) * 0.6;
-        ctx.beginPath();
-        ctx.ellipse(cx, cy + aSize * 0.1, aSize * (0.3 + k * 1.4), aSize * (0.12 + k * 0.5), 0, 0, 6.2832);
-        ctx.lineWidth = Math.max(1, aSize * 0.012 * (1 - k));
-        ctx.strokeStyle = "rgba(255,240,205," + ((1 - k) * 0.7).toFixed(3) + ")";
-        ctx.stroke();
-        ctx.restore();
-      }
-    }
   }
 
   function vignette() {
@@ -335,8 +438,9 @@
     drawWater();
     drawRays();
     drawCaustics();
+    drawCritters();   // fish schools, sharks, jellyfish (behind the crest)
     drawSnow();
-    drawAnchor();   // chain + halo + crest + burst
+    drawAnchor();
     drawBubbles();
     vignette();
   }
@@ -351,7 +455,7 @@
   }
 
   function renderStatic() {
-    revealed = true; entered = 1; dropOff = 0; dropV = 0; landed = true; landT = -10; time = 0.0;
+    revealed = true; entered = 1; dropOff = 0; descT = 99; landed = true; landT = -10; time = 0.0;
     bubbles = []; for (var i = 0; i < 10; i++) spawnBubble(), bubbles[i].y = Math.random() * H;
     paint(0);
   }
@@ -376,8 +480,8 @@
 
   function beginDrop() {
     revealed = true; landed = false; landT = -1;
-    dropOff = -(aCy + aSize);        // start just above the top of the frame
-    dropV = 0; entered = 0;
+    dropStart = -(aCy + aSize * 0.9);   // start just above the top of the frame
+    dropOff = dropStart; descT = 0; entered = 0;
   }
 
   // ---- inputs / lifecycle -------------------------------------------------
